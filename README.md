@@ -43,4 +43,5 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 
 ## Referências Bibliográficas
 > http://ijcsn.org/IJCSN-2019/8-2/Automatic-Colorization-of-Black-and-White-Images-using-Deep-Learning.pdf
+> 
 > https://www.ijrte.org/wp-content/uploads/papers/v8i6/F7719038620.pdf
