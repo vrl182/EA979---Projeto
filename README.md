@@ -14,9 +14,7 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 
 
 ## Descrição do Projeto
-> Descrição do tema do projeto, incluindo contexto gerador, motivação.
-> Descrição do objetivo principal do projeto.
-> Subseções podem ser criadas para organizar o texto.
+> A ideia de transformar uma imagem em tons de cinza em uma imagem colorida é bastante desafiadora e interessante por si só. O processo inverso aparenta ser mais simples, pois há perdas de informação. Enquanto colorir uma imagem exige certo conhecimento prévio sobre o que está sendo representado pela imagem, desde que o objetivo seja de que a imagem final tenha as cores mais próximas às reais possíveis. Tendo isso em vista, temos como objetico criar uma forma de automatizar a colorização de imagens sem o intermédio de um ser-humano. Para tal, utilizaremos de aprendizagem de máquina para fazer todas as escolhas de colorização da imagem. Os potenciais desafios para realizar nosso objetivo nos motivam superá-los.
 
 ## Plano de Trabalho
 
