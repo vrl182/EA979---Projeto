@@ -1,5 +1,5 @@
 # `<Colorização automática de imagens preto e branco>`
-# `<Auto Colorization of Black and White Images>`
+# `<Automatic Colorization of Black and White Images>`
 
 ## Apresentação
 
@@ -18,21 +18,29 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 
 ## Plano de Trabalho
 
-> * Etapa 1 (2 semanas): Escolha do tipo de imagens a serem utilizadas.
+> * Etapa 1 (3 semanas): Escolha do formato do Projeto.
 >
->     Nesta primeira etapa iremos decidir com qual(is) tipo(s) de imagem iremos trabalhar, pois assim definir qual o banco de dados de imagens serão utilizados para o treinamento do modelo de aprendizado de máquina.
+>     Nesta primeira etapa iremos decidir qual o escopo de atuação do projeto, estudando diferentes tipos de código e projetos afim de verificar a viabilidade de desenvolver nosso próprio. Nesse interim temos duas possibilidades de desenvolvimento do projeto: 
+>     A. Desenvolver nosso próprio colorizador;
+>     B. Estudar um Artigo consistente e destrinchá-lo. (Opção escolhida)
 >     
-> * Etapa 2 (3 semanas): Estudo de técnicas de colorização, aprendizado e treinamento de máquinas.
-> 
->     Nesta segunda etapa focaremos nossos esforços no estudo de técnicas de colorização de imagem, para, assim, definirmos quais serão empregadas na solução de nosso projeto.
 >     
-> * Etapa 3 (2 semana): Busca pelo banco de dados de imagens.
+> * Etapa 2 (2 semanas): Leituras preliminares do artigo escolhido.
 > 
->     Nesta terceira etapa procuraremos por um banco de dados que atenda aos nossos requisitos definidos nas duas etapas anteriores.
+>     Nesta segunda etapa focaremos nossos esforços no estudo do artigo: "Learning Representations for Automatic Colorization", escolhendo as principais partes dele a serem estudadas, afim de compreender com sucesso como se funciona uma técnicas moderna (estado da arte) de colorização de imagem.
+>     Focos de estudo:
+>     - VGG-16-Gray
+>     - Hipercoluna
+>     -
 >     
-> * Etapa 4 (4 semanas): Codificação e Testes.
+>     
+> * Etapa 3 (5 semana): Estudo do VGG-1-Gray e da Hipercoluna.
 > 
->     Nesta quarta etapa realizaremos a codificação e faremos os testes necessários para obter o resultado esperado. Eventuais problemas serão descritos no relatório e corrigidos ao longo da etapa.
+>     Nesta terceira etapa estudaremos de forma focada nas principais sub-técnicas utilizadas no desenvolvimento da Colorização automática, que são o VGG-16-Gray e a Hipercoluna.
+>     
+> * Etapa 4 (2 semanas): Estudo das demais partes do artigo, e leituras breves de outros artigos.
+> 
+>     Nesta quarta etapa estudaremos as demais partes do artigo, além de estudar outros projetos afim de comparar diferentes formas de colorização automática.
 >     
 > * Etapa 5 (2 semanas): Escrita do relatório final do projeto.
 >
@@ -40,6 +48,8 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 >
 
 ## Referências Bibliográficas
+> https://arxiv.org/pdf/1603.06668.pdf
+> 
 > http://ijcsn.org/IJCSN-2019/8-2/Automatic-Colorization-of-Black-and-White-Images-using-Deep-Learning.pdf
 > 
 > https://www.ijrte.org/wp-content/uploads/papers/v8i6/F7719038620.pdf
