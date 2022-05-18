@@ -47,6 +47,8 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 >     Na etapa final, escreveremos o relatório final e montaremos a apresentação.
 >
 
+## Não Há Resultados Parciais
+
 ## Referências Bibliográficas
 > https://arxiv.org/pdf/1603.06668.pdf
 > 
