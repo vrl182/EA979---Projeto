@@ -22,7 +22,7 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 > Nosso estudo foi divido em algumas etapas:
  
 ### Exposição sobre o artido estudado:
-> Neste artigo desenvolvey-se um sistema de colorização de imagem totalmente automático. Nele, exploraram-se representações de baixo nível e semânticas, aproveitando avanços em redes profundas. Assim, buscou-se treinar este modelo para que fosso possível prever histogramas de cores por pixel, a qual pode ser usada para gerar automaticamente uma imagem colorida ou manipulada adicionalmente antes da formação da imagem. Por fim, explorou-se a colorização como uma aplicação para o aprendizado de representação visual auto-supervisionada. E superando os métodos existentes.
+> Neste artigo desenvolveu-se um sistema de colorização de imagem totalmente automático. Nele, exploraram-se representações de baixo nível e semânticas, aproveitando avanços em redes profundas. Assim, buscou-se treinar este modelo para que fosso possível prever histogramas de cores por pixel, a qual pode ser usada para gerar automaticamente uma imagem colorida ou manipulada adicionalmente antes da formação da imagem. Por fim, explorou-se a colorização como uma aplicação para o aprendizado de representação visual auto-supervisionada. E superando os métodos existentes.
 
 ### Metodologia utilizada:
 > - Preparação dos dados:
