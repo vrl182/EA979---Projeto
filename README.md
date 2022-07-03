@@ -1,4 +1,4 @@
-# `<Estudo sobre colorização automática de imagens preto e branco>`
+# `<Estudo sobre Colorização Automática de Imagens Preto e Branco>`
 # `<Automatic Colorization of Black and White Images>`
 
 ## Apresentação
