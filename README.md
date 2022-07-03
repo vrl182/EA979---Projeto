@@ -1,4 +1,4 @@
-# `<Colorização automática de imagens preto e branco>`
+# `<Estudo sobre colorização automática de imagens preto e branco>`
 # `<Automatic Colorization of Black and White Images>`
 
 ## Apresentação
@@ -14,7 +14,9 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 
 
 ## Descrição do Projeto
-> A ideia de transformar uma imagem em tons de cinza em uma imagem colorida é bastante desafiadora e interessante por si só. O processo inverso aparenta ser mais simples, pois há perdas de informação. Enquanto colorir uma imagem exige certo conhecimento prévio sobre o que está sendo representado pela imagem, desde que o objetivo seja de que a imagem final tenha as cores mais próximas às reais possíveis. Tendo isso em vista, temos como objetico criar uma forma de automatizar a colorização de imagens sem o intermédio de um ser-humano. Para tal, utilizaremos de aprendizagem de máquina para fazer todas as escolhas de colorização da imagem. Os potenciais desafios para realizar nosso objetivo nos motivam superá-los.
+> A ideia de transformar uma imagem em tons de cinza em uma imagem colorida é bastante desafiadora e interessante por si só. Pois, para que uma colorização ocorra de forma verossímil, ou seja, se aproximando de uma imagem com cores reais, há a necessidade de se ter um conhecimento prévio sobre o que está sendo representado pela imagem. Partindo deste pressuposto e movidos, à priori, pela curiosidade, decidimos estudar ferramentas no estado da arte, e, posteriormente, desenvolver uma técnica própria, o que se mostrou inviável no decorrer do desenvolvimento do projeto.
+> 
+> Desse modo, o foco do projeto como um todo se voltou em estudar e compreender passo a passo o funcionamento de uma dessas técnicas. Desse modo, escolhemos focar na leitura do artigo "Learning Representations for Automatic Colorization" de Gustav Larsson, Michael Maire e Gregory Shakhnarovich, que se apresenta uma ferramenta bastante avançada quanto à sua acurácia, demonstração dos princiais tipos de erros gerados, e contribuições para a aplicação de modelos de aprendizagem visual auto-supervisionado.
 
 ## Abordagem Adotada
 > Descrever de maneira clara todas as etapas executadas no projeto, incluindo tópicos como:
