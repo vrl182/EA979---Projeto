@@ -31,12 +31,12 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 > - Preparação dos dados:
 >   - Luminosidade: para fazer o treinamento de dados, foi feito uma conversão da cor das imagens para escala de cinza, de acordo com a média aritmética dos valores RGB da imagem, isto é, foi definido L como a luminosidade, tal que L = (R+G+B)/3. Com esta simples técnica, foi possível fazer a dessaturação das imagens e utilizá-la na previsão de cores.
 >   - Hue/chroma: ao invés de utilizar L como a matiz de cores de saída, foi utilizado espaços baseados em matiz, como por exemplo, o HSL que pode ser representado por um  cilindro com coordenada angular H (matiz), distância radial S (saturação) e altura L (luminosidade). Porém devido a instabilidades que ocorrem nas cores branco e preto, eventualmente foi pensado no espaço HSV, que só tem instabilidade no preto. Finalmente, para resolver as instabilidades e manter o canal L, foi feio um bicone tal que o canal S foi substituído pelo C (Chroma) na saturação. A conversão feita do HSV é dada por V = L+C/2 e S = C/V.
->   - Lab: Lab(L*a*b) foi projetado para ser linear. Um vetor (a,b) define um espaço Euclidiano onde a distância do vetor até a origem define o chroma.
+>   - Lab: Lab(L.a.b) foi projetado para ser linear. Um vetor (a,b) define um espaço Euclidiano onde a distância do vetor até a origem define o chroma.
 >   - Loss: baseado no artigo [1], foi utilizado uma técnica para mensurar a perda, por meio de histogramas.
 
 ## Arquitetura e treinamento da rede neural:
 
-###VGG-16-G:
+### VGG-16-G:
 > A rede neural utilizada como base é uma versão totalmente convolucional do VGG-16, na qual utiliza-se como entrada uma imagem RGB, a qual irá passar por uma pilha de camadas convolucionais, utilizando filtros muito pequenos, máscaras 3x3 (que é o menor tamanho para capturar a noção de esquerda/direita, cima/baixo, centro ). Podendo-se utilizar também filtros de convolução 1x1 que podem ser vistos como uma transformação linear dos canais de entrada (seguida de não linearidade).
 >
 > Em seguida, o input passa por uma sequência de camadas convolucionais, seguidas de um pooling máximo realizado em uma janela 2x2, e, desse modo, diminuindo seu tamanho pela metade do seguinte modo:
