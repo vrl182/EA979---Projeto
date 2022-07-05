@@ -16,7 +16,7 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 ## Descrição do Projeto
 > A ideia de transformar uma imagem em tons de cinza em uma imagem colorida é bastante desafiadora e interessante por si só. Pois, para que uma colorização ocorra de forma verossímil, ou seja, se aproximando de uma imagem com cores reais, há a necessidade de se ter um conhecimento prévio sobre o que está sendo representado pela imagem. Partindo deste pressuposto e movidos, à priori, pela curiosidade, decidimos estudar ferramentas no estado da arte, e, posteriormente, desenvolver uma técnica própria, o que se mostrou inviável no decorrer do desenvolvimento do projeto.
 > 
-> Desse modo, o foco do projeto como um todo se voltou em estudar e compreender passo a passo o funcionamento de uma dessas técnicas. Desse modo, escolhemos focar na leitura do artigo de 2017, "Learning Representations for Automatic Colorization" de Gustav Larsson, Michael Maire e Gregory Shakhnarovich, que se apresenta uma ferramenta bastante avançada quanto à sua acurácia, demonstração dos princiais tipos de erros gerados, e contribuições para a aplicação de modelos de aprendizagem visual auto-supervisionado.
+> Desse modo, o foco do projeto como um todo se voltou em estudar e compreender passo a passo o funcionamento de uma dessas técnicas. Desse modo, escolhemos focar na leitura do artigo de 2017, "Learning Representations for Automatic Colorization" de Gustav Larsson, Michael Maire e Gregory Shakhnarovich, da Universidade de Chicago, que se apresenta uma ferramenta bastante avançada quanto à sua acurácia, demonstração dos princiais tipos de erros gerados, e contribuições para a aplicação de modelos de aprendizagem visual auto-supervisionado.
 
 ## Abordagem Adotada
 > Nosso estudo foi divido em algumas etapas:
@@ -86,7 +86,7 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 > Por fim, vale ainda destacar a possibilidade de utilização desta técnica de colorização aplicada em meio artísticos, porém a ética por trás de tal aplicação e as discussões com relação à definição de obra de arte não se aplicam a este estudo de técnicas de processamento de imagem e inteligência de máquina.
 
 ## Referências Bibliográficas
-> 1. Charpiat, G., Hofmann, M., Sch¨olkopf, B.: Automatic image colorization via multimodal predictions. In: ECCV (2008)
-> 2. Christian S. Perone, "Convolutional hypercolumns in Python," in Terra Incognita, 11/01/2016, https://blog.christianperone.com/2016/01/convolutional-hypercolumns-in-python/. Github: https://github.com/gustavla/autocolorize
+> 1. G. Larsson1, M. Maire, and G. Shakhnarovich, "Learning Representations for Automatic Colorization", University of Chicago, Toyota Technological Institute at Chicago. Github: https://github.com/gustavla/autocolorize
+> 2. Christian S. Perone, "Convolutional hypercolumns in Python," in Terra Incognita, 11/01/2016, https://blog.christianperone.com/2016/01/convolutional-hypercolumns-in-python/.
 > 3. Shi, J., Malik, J.: Normalized cuts and image segmentation. Pattern Analysis and Machine Intelligence, IEEE Transactions on 22(8) (2000)
 > 4. X. Zhang, J. Zou, K. He, and J. Sun, “Accelerating Very Deep Convolutional Networks for Classification and Detection,” arXiv e-prints, p. arXiv:1505.06798, May 2015
