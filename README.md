@@ -36,7 +36,7 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 
 ## Arquitetura e treinamento da rede neural:
 
-### VGG-16-G:
+### VGG-16:
 > A rede neural utilizada como base é uma versão totalmente convolucional do VGG-16, na qual utiliza-se como entrada uma imagem RGB, a qual irá passar por uma pilha de camadas convolucionais, utilizando filtros muito pequenos, máscaras 3x3 (que é o menor tamanho para capturar a noção de esquerda/direita, cima/baixo, centro ). Podendo-se utilizar também filtros de convolução 1x1 que podem ser vistos como uma transformação linear dos canais de entrada (seguida de não linearidade).
 >
 > Em seguida, o input passa por uma sequência de camadas convolucionais, seguidas de um pooling máximo realizado em uma janela 2x2, e, desse modo, diminuindo seu tamanho pela metade do seguinte modo:
