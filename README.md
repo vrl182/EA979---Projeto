@@ -24,22 +24,36 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 ### Exposição sobre o artido estudado:
 > Neste artigo desenvolveu-se um sistema de colorização de imagem totalmente automático. Nele, exploraram-se representações de baixo nível e semânticas, aproveitando avanços em redes profundas. Assim, buscou-se treinar este modelo para que fosso possível prever histogramas de cores por pixel, a qual pode ser usada para gerar automaticamente uma imagem colorida ou manipulada adicionalmente antes da formação da imagem. Por fim, explorou-se a colorização como uma aplicação para o aprendizado de representação visual auto-supervisionada. E superando os métodos existentes.
 
+### Base de Dados:
+> ImageNet é um conjunto de dados de mais de 15 milhões de imagens rotuladas de alta resolução pertencentes a aproximadamente 22.000 categorias. As imagens foram coletadas da web e rotuladas por rotuladores humanos usando a ferramenta de crowdsourcing Mechanical Turk da Amazon. A partir de 2010, como parte do Pascal Visual Object Challenge, uma competição anual chamada ImageNet Large-Scale Visual Recognition Challenge (ILSVRC) foi realizada. O ILSVRC usa um subconjunto do ImageNet com aproximadamente 1.000 imagens em cada uma das 1.000 categorias. Ao todo, existem cerca de 1,2 milhão de imagens de treinamento, 50.000 imagens de validação e 150.000 imagens de teste. ImageNet consiste em imagens de resolução variável. Portanto, as imagens foram reduzidas para uma resolução fixa de 256×256. Dada uma imagem retangular, a imagem é redimensionada e recortada no ponto central de 256×256 da imagem resultante.
+
 ### Metodologia utilizada:
 > - Preparação dos dados:
 >   - Luminosidade: para fazer o treinamento de dados, foi feito uma conversão da cor das imagens para escala de cinza, de acordo com a média aritmética dos valores RGB da imagem, isto é, foi definido L como a luminosidade, tal que L = (R+G+B)/3. Com esta simples técnica, foi possível fazer a dessaturação das imagens e utilizá-la na previsão de cores.
 >   - Hue/chroma: ao invés de utilizar L como a matiz de cores de saída, foi utilizado espaços baseados em matiz, como por exemplo, o HSL que pode ser representado por um  cilindro com coordenada angular H (matiz), distância radial S (saturação) e altura L (luminosidade). Porém devido a instabilidades que ocorrem nas cores branco e preto, eventualmente foi pensado no espaço HSV, que só tem instabilidade no preto. Finalmente, para resolver as instabilidades e manter o canal L, foi feio um bicone tal que o canal S foi substituído pelo C (Chroma) na saturação. A conversão feita do HSV é dada por V = L+C/2 e S = C/V.
 >   - Lab: Lab(L*a*b) foi projetado para ser linear. Um vetor (a,b) define um espaço Euclidiano onde a distância do vetor até a origem define o chroma.
 >   - Loss: baseado no artigo [1], foi utilizado uma técnica para mensurar a perda, por meio de histogramas.
-> - Arquitetura e treinamento da rede neural:
->   - VGG-16-G:
->   - Hipercolunas:
-> %% (3.5)
-> Descrever de maneira clara todas as etapas executadas no projeto, incluindo tópicos como:
-> - bases de imagens utilizadas (e suas descrições);
-> - modelagens adotadas;
-> - descrição de simplificações realizadas;
-> - testes realizados (incluindo descrição dos testes que não deram certo), etc.
-> Nesta seção devem ser incluídos links para os notebooks que correspondem às diversas etapas do projeto ou devem ser realizadas referências à execução dos códigos.
+
+## Arquitetura e treinamento da rede neural:
+
+###VGG-16-G:
+> A rede neural utilizada como base é uma versão totalmente convolucional do VGG-16, na qual utiliza-se como entrada uma imagem RGB, a qual irá passar por uma pilha de camadas convolucionais, utilizando filtros muito pequenos, máscaras 3x3 (que é o menor tamanho para capturar a noção de esquerda/direita, cima/baixo, centro ). Podendo-se utilizar também filtros de convolução 1x1 que podem ser vistos como uma transformação linear dos canais de entrada (seguida de não linearidade).
+>
+> Em seguida, o input passa por uma sequência de camadas convolucionais, seguidas de um pooling máximo realizado em uma janela 2x2, e, desse modo, diminuindo seu tamanho pela metade do seguinte modo:
+> - Tamanho:224x224 (duas camadas convolucionais + pooling);
+> - Tamanho:128x128 (três camadas convolucionais + pooling);
+> - Tamanho:56x56 (três camadas convolucionais + pooling);
+> - Tamanho:28x28 (três camadas convolucionais + pooling);
+> - Tamanho:14x14 (três camadas convolucionais + pooling).
+>
+> Em seguida, apresentam-se três camadas totalmente conectadas, que seguem uma pilha de camadas convolucionais de aprendizado profundo:sendo as duas primeiras com  4.096 canais cada, e a terceira realizando uma classificação ILSVRC de 1.000 vias e. A camada final é a camada soft-max. Além disso, todas as camadas ocultas são equipadas com a não linearidade de retificação (ReLU).
+>
+> Porém, nesse artigo, utilizou-se a VGG-16 com duas mudanças: (1) a camada de classificação é descartada e (2) a primeira camada de filtro opera em um canal de intensidade única devido à preparação de dados, e por conta disso temos uma VGG-16-Gray. Além disso, vale destacar, que seu desenvolvimento inicializou com uma versão do VGG-16 pré-treinada no ImageNet, adaptando-a à escala de cinza pela média dos canais de cores na primeira camada e redimensionando adequadamente. Antes do treinamento para colorização, ajustamos ainda mais a rede para uma época na tarefa de classificação ImageNet com entrada em escala de cinza. 
+
+### Hipercolunas:
+> Muitos algoritmos que utilizam recursos de CNNs (Convolutional Neural Networks) costumam usar os últimos recursos da camada totalmente conectadas para extrair informações sobre determinada entrada. No entanto, as informações na última camada podem ser muito grosseiras espacialmente para permitir uma localização precisa (devido a sequências de max-pooling, por outro lado, as primeiras camadas podem ser espacialmente precisas, mas possuem poucas informações semânticas. Para obter o melhor dos dois mundos, utiliza-se a hipercoluna de um pixel como o vetor de ativações de todas as unidades CNN “acima” desse pixel.
+>
+> O primeiro passo na extração das hipercolunas é alimentar a imagem na CNN (Convolutional Neural Network) e extrair as ativações do mapa de características para cada local da imagem. Essa hipercoluna é muito interessante porque conterá informações sobre as primeiras camadas (onde temos muita informação espacial, mas pouca semântica) e também informações sobre as camadas finais (com pouca informação espacial e muita semântica). Assim, esta hipercoluna certamente ajudará em muitas tarefas de classificação de pixels, como a colorização automática, pois cada hipercoluna de localização carrega as informações sobre o que esse pixel representa semanticamente e espacialmente. Isso também é muito útil em tarefas de segmentação.
 
 ## Resultados Finais
 > Descrever e apresentar os resultados finais obtidos
