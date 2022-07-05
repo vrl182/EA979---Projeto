@@ -56,8 +56,11 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 > O primeiro passo na extração das hipercolunas é alimentar a imagem na CNN (Convolutional Neural Network) e extrair as ativações do mapa de características para cada local da imagem. Essa hipercoluna é muito interessante porque conterá informações sobre as primeiras camadas (onde temos muita informação espacial, mas pouca semântica) e também informações sobre as camadas finais (com pouca informação espacial e muita semântica). Assim, esta hipercoluna certamente ajudará em muitas tarefas de classificação de pixels, como a colorização automática, pois cada hipercoluna de localização carrega as informações sobre o que esse pixel representa semanticamente e espacialmente. Isso também é muito útil em tarefas de segmentação.
 
 ## Resultados Finais
-> Descrever e apresentar os resultados finais obtidos
-> %%(4)
+> > Para os experimentos, o sistema foi treinado em uma época com 1,2 milhões de imagens do site ImageNet. Cada época leva aproximadamente 17 horas numa GTX Titan X GPU.
+> No processo de teste, foram utilizadas duas métricas: RMSE e PSNR. RMSE significa "root mean square error", o erro quadrático sob o espaço Euclidiano "ab". O PSNR significa "peak signal-noise ratio", a relação do pico do sinal-ruído da imagem em RGB.
+> Para obter resultados satisfatórios, foram necessários cerca de 10 épocas de treinamento para as imagens.
+
+![img](imagens/img1.png)
 
 ## Discussão
 > Discutir os resultados finais obtidos considerando-se o objetivo inicialmente proposto.
