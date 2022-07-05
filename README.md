@@ -24,6 +24,8 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 ### Exposição sobre o artido estudado:
 > Neste artigo desenvolveu-se um sistema de colorização de imagem totalmente automático. Nele, exploraram-se representações de baixo nível e semânticas, aproveitando avanços em redes profundas. Assim, buscou-se treinar este modelo para que fosso possível prever histogramas de cores por pixel, a qual pode ser usada para gerar automaticamente uma imagem colorida ou manipulada adicionalmente antes da formação da imagem. Por fim, explorou-se a colorização como uma aplicação para o aprendizado de representação visual auto-supervisionada. E superando os métodos existentes.
 
+![img](imagens/img4.png)
+
 ### Base de Dados:
 > ImageNet é um conjunto de dados de mais de 15 milhões de imagens rotuladas de alta resolução pertencentes a aproximadamente 22.000 categorias. As imagens foram coletadas da web e rotuladas por rotuladores humanos usando a ferramenta de crowdsourcing Mechanical Turk da Amazon. A partir de 2010, como parte do Pascal Visual Object Challenge, uma competição anual chamada ImageNet Large-Scale Visual Recognition Challenge (ILSVRC) foi realizada. O ILSVRC usa um subconjunto do ImageNet com aproximadamente 1.000 imagens em cada uma das 1.000 categorias. Ao todo, existem cerca de 1,2 milhão de imagens de treinamento, 50.000 imagens de validação e 150.000 imagens de teste. ImageNet consiste em imagens de resolução variável. Portanto, as imagens foram reduzidas para uma resolução fixa de 256×256. Dada uma imagem retangular, a imagem é redimensionada e recortada no ponto central de 256×256 da imagem resultante.
 
@@ -47,7 +49,9 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 > - Tamanho:14x14 (três camadas convolucionais + pooling).
 >
 > Em seguida, apresentam-se três camadas totalmente conectadas, que seguem uma pilha de camadas convolucionais de aprendizado profundo:sendo as duas primeiras com  4.096 canais cada, e a terceira realizando uma classificação ILSVRC de 1.000 vias e. A camada final é a camada soft-max. Além disso, todas as camadas ocultas são equipadas com a não linearidade de retificação (ReLU).
->
+
+![img](imagens/img5.png)
+
 > Porém, nesse artigo, utilizou-se a VGG-16 com duas mudanças: (1) a camada de classificação é descartada e (2) a primeira camada de filtro opera em um canal de intensidade única devido à preparação de dados, e por conta disso temos uma VGG-16-Gray. Além disso, vale destacar, que seu desenvolvimento inicializou com uma versão do VGG-16 pré-treinada no ImageNet, adaptando-a à escala de cinza pela média dos canais de cores na primeira camada e redimensionando adequadamente. Antes do treinamento para colorização, ajustamos ainda mais a rede para uma época na tarefa de classificação ImageNet com entrada em escala de cinza. 
 
 ### Hipercolunas:
@@ -56,11 +60,21 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 > O primeiro passo na extração das hipercolunas é alimentar a imagem na CNN (Convolutional Neural Network) e extrair as ativações do mapa de características para cada local da imagem. Essa hipercoluna é muito interessante porque conterá informações sobre as primeiras camadas (onde temos muita informação espacial, mas pouca semântica) e também informações sobre as camadas finais (com pouca informação espacial e muita semântica). Assim, esta hipercoluna certamente ajudará em muitas tarefas de classificação de pixels, como a colorização automática, pois cada hipercoluna de localização carrega as informações sobre o que esse pixel representa semanticamente e espacialmente. Isso também é muito útil em tarefas de segmentação.
 
 ## Resultados Finais
-> > Para os experimentos, o sistema foi treinado em uma época com 1,2 milhões de imagens do site ImageNet. Cada época leva aproximadamente 17 horas numa GTX Titan X GPU.
+> Para os experimentos, o sistema foi treinado em uma época com 1,2 milhões de imagens do site ImageNet. Cada época leva aproximadamente 17 horas numa GTX Titan X GPU.
 > No processo de teste, foram utilizadas duas métricas: RMSE e PSNR. RMSE significa "root mean square error", o erro quadrático sob o espaço Euclidiano "ab". O PSNR significa "peak signal-noise ratio", a relação do pico do sinal-ruído da imagem em RGB.
 > Para obter resultados satisfatórios, foram necessários cerca de 10 épocas de treinamento para as imagens.
 
 ![img](imagens/img1.png)
+
+> Percebe-se que os resultados foram satisfatórios, de modo que à primeira vista sem ter visto a imagem original, é facilmente aceitável como uma imagem real.
+
+![img](imagens/img3.png)
+
+> Além disso, é possível obter as imagens em seus três espectros de cores (RGB) e seu mapa de calor.
+
+![img](imagens/img2.png)
+
+> Porém, ainda houveram resultados que nitidamente apresentam erros como fundos incongruentes, falta de cor (monocromático), cores inconsistentes, textura confusa etc.
 
 ## Discussão
 > Discutir os resultados finais obtidos considerando-se o objetivo inicialmente proposto.
