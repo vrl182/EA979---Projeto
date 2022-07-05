@@ -26,6 +26,8 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 
 ![img](imagens/img4.png)
 
+> Foi processada uma imagem em tons de cinza através de uma arquitetura convolucional profunda (VGG) e, em seguida, passou por fatias multicamadas espacialmente localizadas (hipercolunas), como classificação por pixel. O modelo foi treinado num sistema de ponta a ponta para a tarefa de prever as distribuições de matiz e croma para cada pixel, dada sua classificação na hipercoluna. Essas distribuições previstas determinam a atribuição de cores no momento do teste.
+
 ### Base de Dados:
 > ImageNet é um conjunto de dados de mais de 15 milhões de imagens rotuladas de alta resolução pertencentes a aproximadamente 22.000 categorias. As imagens foram coletadas da web e rotuladas por rotuladores humanos usando a ferramenta de crowdsourcing Mechanical Turk da Amazon. A partir de 2010, como parte do Pascal Visual Object Challenge, uma competição anual chamada ImageNet Large-Scale Visual Recognition Challenge (ILSVRC) foi realizada. O ILSVRC usa um subconjunto do ImageNet com aproximadamente 1.000 imagens em cada uma das 1.000 categorias. Ao todo, existem cerca de 1,2 milhão de imagens de treinamento, 50.000 imagens de validação e 150.000 imagens de teste. ImageNet consiste em imagens de resolução variável. Portanto, as imagens foram reduzidas para uma resolução fixa de 256×256. Dada uma imagem retangular, a imagem é redimensionada e recortada no ponto central de 256×256 da imagem resultante.
 
