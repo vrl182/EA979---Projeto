@@ -26,9 +26,10 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 
 ### Metodologia utilizada:
 > - Preparação dos dados:
-> %%Hue e luminosidade (3.1) e Loss (3.2)
-> - Inferência da cor final:
-> %% (3.3)
+>   - Luminosidade: para fazer o treinamento de dados, foi feito uma conversão da cor das imagens para escala de cinza, de acordo com a média aritmética dos valores RGB da imagem, isto é, foi definido L como a luminosidade, tal que L = (R+G+B)/3. Com esta simples técnica, foi possível fazer a dessaturação das imagens e utilizá-la na previsão de cores.
+>   - Hue/chroma: ao invés de utilizar L como a matiz de cores de saída, foi utilizado espaços baseados em matiz, como por exemplo, o HSL que pode ser representado por um  cilindro com coordenada angular H (matiz), distância radial S (saturação) e altura L (luminosidade). Porém devido a instabilidades que ocorrem nas cores branco e preto, eventualmente foi pensado no espaço HSV, que só tem instabilidade no preto. Finalmente, para resolver as instabilidades e manter o canal L, foi feio um bicone tal que o canal S foi substituído pelo C (Chroma) na saturação. A conversão feita do HSV é dada por V = L+C/2 e S = C/V.
+>   - Lab: Lab(L*a*b) foi projetado para ser linear. Um vetor (a,b) define um espaço Euclidiano onde a distância do vetor até a origem define o chroma.
+>   - Loss: baseado no artigo [1], foi utilizado uma técnica para mensurar a perda, por meio de histogramas.
 > - Arquitetura e treinamento da rede neural:
 >   - VGG-16-G:
 >   - Hipercolunas:
@@ -54,6 +55,5 @@ oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dr
 ## Referências Bibliográficas
 > https://arxiv.org/pdf/1603.06668.pdf
 > 
-> http://ijcsn.org/IJCSN-2019/8-2/Automatic-Colorization-of-Black-and-White-Images-using-Deep-Learning.pdf
-> 
-> https://www.ijrte.org/wp-content/uploads/papers/v8i6/F7719038620.pdf
+> 1.Charpiat, G., Hofmann, M., Sch¨olkopf, B.: Automatic image colorization via multimodal predictions. In: ECCV (2008)
+
